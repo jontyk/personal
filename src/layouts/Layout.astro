@@ -1,0 +1,349 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { 
+	title,
+	description = "Jonty Knox is an Australian software entrepreneur, engineer, designer, and Co-founder of CustomerOS."
+} = Astro.props;
+
+const jsonLd = [
+    [
+      {
+        "@context": "https://schema.org/",
+        "@type": "Person",
+        "@id": "https://jontyknox.com/#JontyKnox",
+        "url": "https://jontyknox.com",
+        "affiliation": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.wikidata.org/wiki/Q132456993",
+            "url": "https://customeros.ai/",
+            "name": "CustomerOS"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.wikidata.org/wiki/Q2616400",
+            "url": "https://www.ycombinator.com/",
+            "name": "Y Combinator"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.wikidata.org/wiki/Q4854759",
+            "url": "https://www.bandwidth.com/",
+            "name": "Bandwidth.com"
+          }
+        ],
+        "description": "Jonty Knox is an Australian entrepreneur and the co-founder of CustomerOS, a Y Combinator-backed company building AI agents for sales, marketing, and customer success. Previously, he was Head of Product at Voxbone, which was acquired by Bandwidth for $519M in 2020. He is passionate about using AI to transform customer interactions to be a pleasure every single time.",
+        "image": "https://jontyknox.com/images/jonty-knox.jpg",
+        "name": "Jonty Knox",
+        "givenName": "Jonty",
+        "familyName": "Knox",
+        "gender": "Male",
+        "birthPlace": "Adelaide, Australia",
+        "email": "jonty@customeros.ai",
+        "jobTitle": "COO and Co-Founder",
+        "sameAs": [
+          "https://www.linkedin.com/in/jontyknox",
+          "https://twitter.com/jontyknox",
+          "https://x.com/jontyknox",
+          "https://www.crunchbase.com/person/jonty-knox",
+          "https://www.instagram.com/jontyknox",
+          "https://www.ycombinator.com/companies/founders?query=Jonty%20Knox",
+          "https://github.com/jontyk",
+          "https://theorg.com/org/customeros/org-chart/jonty-knox",
+          "https://www.google.com/search?kgmid=/g/11vwqnv6bv",
+          "https://www.producthunt.com/@jontyk"
+        ],
+        "knowsAbout": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.wikidata.org/wiki/Q4854759",
+            "name": "Bandwidth.com"
+          },
+          {
+            "@type": "Thing",
+            "@id": "https://www.wikidata.org/wiki/Q1780667",
+            "name": "Product Management"
+          },
+          {
+            "@type": "Thing",
+            "@id": "https://www.wikidata.org/wiki/Q1254596",
+            "name": "Software as a Service"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://www.wikidata.org/wiki/Q2616400",
+            "name": "Y Combinator"
+          }
+        ],
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "@id": "https://jontyknox.com/#Person_knowsLanguage_Language1",
+            "name": "English"
+          }
+        ],
+        "nationality": [
+          {
+            "@type": "Country",
+            "@id": "https://www.wikidata.org/wiki/Q408",
+            "name": "Australia"
+          },
+		  {
+            "@type": "Country",
+            "@id": "https://www.wikidata.org/wiki/Q145",
+            "name": "United Kingdom"
+          },
+          {
+            "@type": "Country",
+            "@id": "https://www.wikidata.org/wiki/Q233",
+            "name": "Malta"
+          }
+        ],
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "@id": "https://www.wikidata.org/wiki/Q2616400",
+            "name": "Y Combinator",
+            "url": "https://www.ycombinator.com/"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "@id": "https://www.wikidata.org/wiki/Q270532",
+            "name": "University of Aberdeen",
+            "url": "https://www.abdn.ac.uk/"
+          }
+        ]
+    	},
+		{
+			"@context": "https://schema.org/",
+			"@type": "WebSite",
+			"name": "Jonty Knox",
+			"url": "https://jontyknox.com",
+			"mainEntity": "https://jontyknox.com/#JontyKnox"
+		}
+    ]
+];
+---
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<title>{title}</title>
+		<meta charset="UTF-8" />
+		<meta name="description" content={description}>
+		<meta name="og:description" content={description}>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta property="og:title" content={title}>
+		<meta property="twitter:title" content={title}>
+		<meta property="og:url" content="https://jontyknox.com">
+		<meta property="og:site_name" content="Jonty Knox">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+		<link rel="canonical" href="https://jontyknox.com">
+		<link rel="icon" href="/favicon.ico" sizes="32x32">
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		
+		<style is:global>
+			@font-face {
+				font-family: 'Inter';
+				src: url('inter-regular.woff2') format('woff2');
+				font-style: normal;
+				font-weight: 400;
+				font-display: block;
+			}
+			
+			@font-face {
+				font-family: 'Inter';
+				src: url('inter-semibold.woff2') format('woff2');
+				font-style: normal;
+				font-weight: 600;
+				font-display: block;
+			}
+			
+			html {
+				transition: background-color 300ms ease;
+			}
+			
+			body {
+				margin: 0 auto;
+				max-width: 700px;
+				padding: 5dvh 16px;
+				position: relative;
+				font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+				-webkit-font-smoothing: antialiased;
+				text-rendering: optimizelegibility;
+				text-size-adjust: 100%;
+				color: #303030;
+				line-height: 1.4;
+				transition: color 300ms ease;
+			}
+			
+			li {
+				padding: 4px 0;
+			}
+			
+			a {
+				color: lch(50 85 280);
+				display: inline-flex;
+				text-decoration: none;
+				font-weight: 600;
+			}
+			
+			img {
+				opacity: 0;
+				width: 60px;
+				height: 60px;
+				border-radius: 4px;
+				transition: opacity 300ms;
+			}
+			
+			header img {
+				width: 60px;
+				height: 60px;
+				border-radius: 4px;
+			}
+			
+			.fadeIn {
+				opacity: 1;
+			}
+			
+			.gridImage {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				object-position: center right;
+			}
+			
+			h1, h2, ul {
+				margin: 0;
+			}
+			
+			figure {
+				margin: 0;
+			}
+			
+			figcaption {
+				margin-top: 2px;
+				font-size: 13px;
+				color: #707070;
+			}
+
+			.subheading {
+				font-size: 16px;
+				font-weight: 400;
+				padding-bottom: 12px;
+			}
+			
+			main {
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
+			
+			span {
+				display: block;
+				padding-bottom: 12px;
+			}
+			
+			::selection {
+				background-color: #9DFCE2;
+			}
+			
+			section {
+				display: flex;
+				flex-direction: column;
+				gap: 8px;
+			}
+			
+			.grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				column-gap: 12px;
+				row-gap: 16px;
+				
+				& a {
+					width: 100%;
+				}
+			}
+
+			blockquote {
+				font-style: italic;
+				margin: 12px 0 12px 2px;
+				padding-left: 20px;
+				line-height: 1.75;
+				opacity: 0.8;
+				position: relative;
+
+				&::before {
+					content: "";
+					display: block;
+					height: 100%;
+					width: 4px;
+					background-color: #dedede;
+					position: absolute;
+					left: 0;
+					border-radius: 8px;
+				}
+
+				& span {
+					padding-bottom: 0;
+				}
+			}
+			
+			@media (prefers-color-scheme: dark) {
+				html {
+					color-scheme: dark;
+					background-color: #1C1D21;
+				}
+
+				a {
+					color: lch(59 68 269);
+				}
+				
+				body {
+					color: #E3E5EA;
+				}
+				
+				figcaption {
+					color: #dadada;
+				}
+				
+				::selection {
+					background-color: #E43ADE;
+				}
+				
+				@media screen and (max-width: 500px) {
+					html {
+						background-color: #000;
+					}
+				}
+			}
+			
+			@media screen and (max-width: 500px) {
+				.gridImage {
+					height: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<slot />
+		<script>
+			document.addEventListener('DOMContentLoaded', function () {
+				document.querySelectorAll('img').forEach(img => {
+					img.onload = () => img.classList.add('fadeIn');
+					if (img.complete) img.onload();
+				});
+			});
+		</script>
+	</body>
+</html>
