@@ -2,11 +2,15 @@
 interface Props {
 	title: string;
 	description?: string;
+	publishDate?: string;
+	author?: string;
 }
 
 const { 
 	title,
-	description = "Jonty Knox is an Australian software entrepreneur, engineer, designer, and Co-founder of CustomerOS."
+	description = "Jonty Knox is an Australian software entrepreneur, engineer, designer, and Co-founder of CustomerOS.",
+	publishDate = new Date().toISOString(),
+	author = "Jonty Knox"
 } = Astro.props;
 
 const jsonLd = [
@@ -150,6 +154,20 @@ const jsonLd = [
 		<link rel="canonical" href="https://jontyknox.com">
 		<link rel="icon" href="/favicon.ico" sizes="32x32">
 		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+		<script define:vars={{ title, description, publishDate, author }} type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"name": title,
+				"description": description,
+				"datePublished": publishDate,
+				"author": {
+					"@type": "Person",
+					"name": author
+				},
+				"url": Astro.url.href
+			}
+		</script>
 		
 		<style is:global>
 			@font-face {
