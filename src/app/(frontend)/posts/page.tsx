@@ -22,8 +22,8 @@ export default async function Page() {
     select: {
       title: true,
       slug: true,
-      categories: true,
       meta: true,
+      categories: true,
     },
   })
 
@@ -38,7 +38,7 @@ export default async function Page() {
 
       <div className="container mb-8">
         <PageRange
-          collection="posts"
+          collectionLabels={{ plural: 'Posts', singular: 'Post' }}
           currentPage={posts.page}
           limit={12}
           totalDocs={posts.totalDocs}
@@ -58,6 +58,7 @@ export default async function Page() {
 
 export function generateMetadata(): Metadata {
   return {
-    title: `Payload Website Template Posts`,
+    title: `Blog`,
+    description: 'Personal blog posts.',
   }
 }

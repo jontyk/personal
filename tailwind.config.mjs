@@ -92,6 +92,24 @@ const config = {
         success: 'hsl(var(--success))',
         error: 'hsl(var(--error))',
         warning: 'hsl(var(--warning))',
+        link: {
+          DEFAULT: 'hsl(var(--link))',
+          hover: 'hsl(var(--link-hover))',
+        },
+        selection: 'hsl(var(--selection))',
+        // Catppuccin Frappé colors
+        ctp: {
+          blue: 'hsl(var(--ctp-blue))',
+          sapphire: 'hsl(var(--ctp-sapphire))',
+          sky: 'hsl(var(--ctp-sky))',
+          teal: 'hsl(var(--ctp-teal))',
+          green: 'hsl(var(--ctp-green))',
+          yellow: 'hsl(var(--ctp-yellow))',
+          peach: 'hsl(var(--ctp-peach))',
+          mauve: 'hsl(var(--ctp-mauve))',
+          lavender: 'hsl(var(--ctp-lavender))',
+          pink: 'hsl(var(--ctp-pink))',
+        },
       },
       fontFamily: {
         mono: ['var(--font-geist-mono)'],

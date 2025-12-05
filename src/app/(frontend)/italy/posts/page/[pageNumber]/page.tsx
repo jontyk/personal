@@ -31,11 +31,6 @@ export default async function Page({ params: paramsPromise }: Args) {
     limit: 12,
     page: sanitizedPageNumber,
     overrideAccess: false,
-    select: {
-      title: true,
-      slug: true,
-      meta: true,
-    },
   })
 
   return (
@@ -49,7 +44,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
       <div className="container mb-8">
         <PageRange
-          collectionLabels={{ plural: 'Posts', singular: 'Post' }}
+          collection="posts"
           currentPage={posts.page}
           limit={12}
           totalDocs={posts.totalDocs}
@@ -70,8 +65,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
-    title: `Blog`,
-    description: 'Personal blog posts.',
+    title: `Payload Website Template Posts Page ${pageNumber || ''}`,
   }
 }
 
