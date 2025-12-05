@@ -50,7 +50,7 @@ export const ItalyPosts: CollectionConfig<'italy-posts'> = {
       url: ({ data, req }) => {
         const path = generatePreviewPath({
           slug: typeof data?.slug === 'string' ? data.slug : '',
-          collection: 'italy',
+          collection: 'italy-posts',
           req,
         })
 
@@ -60,7 +60,7 @@ export const ItalyPosts: CollectionConfig<'italy-posts'> = {
     preview: (data, { req }) =>
       generatePreviewPath({
         slug: typeof data?.slug === 'string' ? data.slug : '',
-        collection: 'italy',
+        collection: 'italy-posts',
         req,
       }),
     useAsTitle: 'title',
