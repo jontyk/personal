@@ -94,9 +94,14 @@ export const plugins: Plugin[] = [
   vercelBlobStorage({
     enabled: true,
     collections: {
-      media: true,
+      media: {
+        prefix: 'media',
+        disablePayloadAccessControl: true,
+      },
     },
     token: process.env.BLOB_READ_WRITE_TOKEN || '',
+    // Add CORS configuration for custom domain
+    addRandomSuffix: true,
   }),
   payloadCloudPlugin(),
 ]
