@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
 
 export default function NotFound() {
   const router = useRouter()
@@ -40,7 +39,7 @@ export default function NotFound() {
       <main>
         <section>
           <p style={{ marginBottom: '1.5rem' }}>
-            The page you're looking for doesn't exist or has been moved.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved.
           </p>
           <button
             onClick={handleNavigation}
