@@ -7,14 +7,20 @@ import { unstable_cache } from 'next/cache'
 type Global = keyof Config['globals']
 
 async function getGlobal(slug: Global, depth = 0) {
-  const payload = await getPayload({ config: configPromise })
+  try {
+    const payload = await getPayload({ config: configPromise })
 
-  const global = await payload.findGlobal({
-    slug,
-    depth,
-  })
+    const global = await payload.findGlobal({
+      slug,
+      depth,
+    })
 
-  return global
+    return global
+  } catch (error) {
+    console.warn(`Could not fetch global "${slug}":`, error)
+    // Return minimal structure to prevent build errors
+    return { id: 0, navItems: [] } as any
+  }
 }
 
 /**
