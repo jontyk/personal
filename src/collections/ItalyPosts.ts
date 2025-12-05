@@ -188,7 +188,7 @@ export const ItalyPosts: CollectionConfig<'italy-posts'> = {
   versions: {
     drafts: {
       autosave: {
-        interval: 100,
+        interval: 2000, // Autosave every 2 seconds - balances live preview with performance
       },
       schedulePublish: true,
     },
