@@ -11,29 +11,24 @@ export const CollectionArchive: React.FC<Props> = (props) => {
   const { posts } = props
 
   return (
-    <div className={cn('container')}>
-      <div>
-        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-y-4 gap-x-4 lg:gap-y-8 lg:gap-x-8 xl:gap-x-8">
-          {posts?.map((result, index) => {
-            if (typeof result === 'object' && result !== null) {
-              // Determine relationTo based on presence of categories (posts) or not (italy)
-              const relationTo = 'categories' in result ? 'posts' : 'italy-posts'
-              return (
-                <div className="col-span-4" key={index}>
-                  <Card
-                    className="h-full"
-                    doc={result}
-                    relationTo={relationTo}
-                    showCategories={relationTo === 'posts'}
-                  />
-                </div>
-              )
-            }
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {posts?.map((result, index) => {
+        if (typeof result === 'object' && result !== null) {
+          // Determine relationTo based on presence of categories (posts) or not (italy)
+          const relationTo = 'categories' in result ? 'posts' : 'italy-posts'
+          return (
+            <Card
+              key={index}
+              className="h-full"
+              doc={result}
+              relationTo={relationTo}
+              showCategories={relationTo === 'posts'}
+            />
+          )
+        }
 
-            return null
-          })}
-        </div>
-      </div>
+        return null
+      })}
     </div>
   )
 }

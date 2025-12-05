@@ -39,30 +39,30 @@ export default async function Page({ params: paramsPromise }: Args) {
   })
 
   return (
-    <div className="pt-24 pb-24">
+    <div className="min-h-screen">
       <PageClient />
-      <div className="container mb-16">
-        <div className="prose dark:prose-invert max-w-none">
-          <h1>Posts</h1>
+
+      {/* Hero Section */}
+      <div className="border-b border-border bg-card">
+        <div className="container py-16 md:py-24">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-4">Writing</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Thoughts on building products, startups, and life.
+          </p>
         </div>
       </div>
 
-      <div className="container mb-8">
-        <PageRange
-          collectionLabels={{ plural: 'Posts', singular: 'Post' }}
-          currentPage={posts.page}
-          limit={12}
-          totalDocs={posts.totalDocs}
-        />
+      {/* Posts Grid */}
+      <div className="container py-12 md:py-16">
+        <CollectionArchive posts={posts.docs} />
       </div>
 
-      <CollectionArchive posts={posts.docs} />
-
-      <div className="container">
-        {posts?.page && posts?.totalPages > 1 && (
+      {/* Pagination */}
+      {posts?.page && posts?.totalPages > 1 && (
+        <div className="container pb-16">
           <Pagination page={posts.page} totalPages={posts.totalPages} />
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 }
@@ -70,8 +70,9 @@ export default async function Page({ params: paramsPromise }: Args) {
 export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
   const { pageNumber } = await paramsPromise
   return {
-    title: `Blog`,
-    description: 'Personal blog posts.',
+    title: `Writing - Page ${pageNumber} | Jonty Knox`,
+    description:
+      'Thoughts on building products, startups, and life from Jonty Knox, co-founder of CustomerOS.',
   }
 }
 
